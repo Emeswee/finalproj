@@ -18,6 +18,8 @@
 	th, td {
 		padding: 5px;
 		text-align: left;
+		font-family:'Lucida Sans' ;
+		font-weight: bold;
 	}
 </style>
 <body>

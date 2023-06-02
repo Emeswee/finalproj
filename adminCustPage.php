@@ -2,7 +2,7 @@
     include('session.php');
 	include("config.php");
 ?>
-<?php include('navbar.php'); ?>
+<?php include('adminNavbar.php'); ?>
 
 <html>
 <head>
@@ -23,7 +23,7 @@
 
 </style>
 <body>
-<h1>Welcome <?php
+<h1>Welcome Admin <?php
 		$sql = "SELECT user_name FROM login_cred WHERE login_id = '$login_session'";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
@@ -38,10 +38,6 @@
 		<th>ID</th>
 		<th>Name</th>
 		<th>Telephone Number</th>
-		<th>Address</th>
-		<th>Description</th>
-		<th>Operating Hours</th>
-		<!-- <th colspan="2">Action</th> -->
 	</tr>
 
 	<!-- PHP code to retrieve and display data from the database -->
@@ -49,19 +45,16 @@
 	<?php
 
 		// Retrieve data from the restaurant table
-		$sql = "SELECT * FROM restaurant";
+		$sql = "SELECT * FROM customer";
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {
 			while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 				echo "<tr>";
 				// echo "<td>".$row["rest_id"]."</td>";
-				echo '<td><a href="menu.php?rest_id='.$row["rest_id"] . '">' . $row["rest_id"] . '</a></td>';
-				echo "<td>".$row["rest_name"]."</td>";
-				echo "<td>".$row["rest_telp_num"]."</td>";
-				echo "<td>".$row["rest_address"]."</td>";
-				echo "<td>".$row["rest_description"]."</td>";
-				echo "<td>".$row["rest_open_status"]."</td>";
+				echo '<td><a href="myCart.php?rest_id='.$row["cust_id"] . '">' . $row["cust_id"] . '</a></td>';
+				echo "<td>".$row["cust_name"]."</td>";
+				echo "<td>".$row["cust_telp_num"]."</td>";
 				// echo "<td><a href='update.php?id=".$row["rest_id"]."'>Modify</a></td>";
 				// echo "<td><a href='delete.php?id=".$row["rest_id"]."'>Delete</a></td>";
 				echo "</tr>";

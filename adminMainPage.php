@@ -89,6 +89,6 @@
 
 <div class="cont">
     <a href="adminRestPage.php"><button class="button-74" role="button">Restaurants</button></a>
-    <a href="adminCustPage.php"><button class="button-74" role="button"> Customer</button></a>
-    <a href="adminOrdersPage.php"><button class="button-74" role="button"> Orders</button></a>
+    <a href="adminUsersPage.php"><button class="button-74" role="button">Users</button></a>
+    <a href="adminOrdersPage.php"><button class="button-74" role="button">Orders</button></a>
 </div>

@@ -14,9 +14,9 @@
 		border: 1px solid black;
 		border-collapse: collapse;
 	}
-	th, td {
+	th, td , p{
 		padding: 5px;
-		text-align: left;
+		text-align: center;
 		font-family:'Lucida Sans' ;
 		font-weight: bold;
 	}
@@ -32,12 +32,13 @@
 			echo $user_name;
 		}
 		?></h1>
-<h1 align="center">餐廳自取外賣平台</h1>
+<h1 align="center">User List</h1>
 <table style="width:50%" align="center">
 	<tr>
-		<th>ID</th>
+		<th>User ID</th>
 		<th>Name</th>
-		<th>Telephone Number</th>
+		<th>Email</th>
+		<th>Type</th>
 	</tr>
 
 	<!-- PHP code to retrieve and display data from the database -->
@@ -45,18 +46,18 @@
 	<?php
 
 		// Retrieve data from the restaurant table
-		$sql = "SELECT * FROM customer";
+		$sql = "SELECT * FROM login_cred";
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {
 			while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 				echo "<tr>";
-				// echo "<td>".$row["rest_id"]."</td>";
-				echo '<td><a href="myCart.php?rest_id='.$row["cust_id"] . '">' . $row["cust_id"] . '</a></td>';
-				echo "<td>".$row["cust_name"]."</td>";
-				echo "<td>".$row["cust_telp_num"]."</td>";
-				// echo "<td><a href='update.php?id=".$row["rest_id"]."'>Modify</a></td>";
-				// echo "<td><a href='delete.php?id=".$row["rest_id"]."'>Delete</a></td>";
+				echo "<td>".$row["login_id"]."</td>";
+				//echo '<td><a href="myCart.php?rest_id='.$row["cust_id"] . '">' . $row["cust_id"] . '</a></td>';
+				echo "<td>".$row["user_name"]."</td>";
+				echo "<td>".$row["user_email"]."</td>";
+				echo "<td>".$row["user_type"]."</td>";
+				echo "<td><p><a href='updateUser.php?id=".$row["login_id"]."'>Modify</a></p><p><a href='deleteUser.php?id=".$row["login_id"]."'>Delete</a></p></td>";
 				echo "</tr>";
 			}
 		} else {
@@ -67,6 +68,6 @@
 	?>
 
 </table>
-<!-- <p align="center"><a href="create.html">Add Data</a></p> -->
+<p align="center"><a href="add.html">Add Data</a></p>
 </body>
 </html>

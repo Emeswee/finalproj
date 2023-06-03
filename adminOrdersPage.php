@@ -23,9 +23,13 @@
 	th, td {
 		padding: 5px;
 		text-align: left;
+        font-family:'Lucida Sans' ;
+		font-weight: bold;
 	}
     h1 {
         text-align: center;
+        font-family:'Lucida Sans' ;
+		font-weight: bold;
     }
 </style>
 <body>
@@ -44,9 +48,9 @@
         if ($result->num_rows > 0) {
             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                 echo "<tr>";
-                echo "<td><a href='orderItems.php?order_id=".$row["order_id"]."'>" . $row["order_id"] . "</a></td>";
+                echo "<td><a href='adminOrderItems.php?order_id=".$row["order_id"]."'>" . $row["order_id"] . "</a></td>";
                 echo "<td>".$row["cust_name"]."</td>";
-                echo "<td><p><a href='update.php?id=".$row["order_id"]."'>Modify</a></p><p><a href='delete.php?id=".$row["order_id"]."'>Delete</a></p></td>";
+                //echo "<td><p><a href='update.php?id=".$row["order_id"]."'>Modify</a></p><p><a href='delete.php?id=".$row["order_id"]."'>Delete</a></p></td>";
                 // echo "<td><a href='delete.php?id=".$row["order_id"]."'>Delete</a></td>";
                 echo "</tr>";
             }

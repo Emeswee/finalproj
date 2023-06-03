@@ -12,9 +12,9 @@
       $sql = "SELECT login_id FROM login_cred WHERE user_name = '$myusername' and user_password = '$mypassword'";
       $result = $conn->query($sql);	// Send SQL Query
 
-      if ($result->num_rows == 1 && $myusername == "John Doe") {	
+      if ($result->num_rows == 1) {	
         $_SESSION['login_user'] = $myusername;
-        header("location: adminMainPage.php");
+        header("location: restaurants.php");
       } else {
         echo "Your Login Name or Password is invalid";
       }
